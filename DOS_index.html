@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Lista de Peliculas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="DOS_styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__logo">Mi Lista de Peliculas</h1>
+        <button class="header__toggle" id="theme-toggle" aria-label="Cambiar tema">🌙</button>
+    </header>
+
+    <main class="main">
+        <section class="form-section">
+            <h2 class="form-section__title">Agregar Pelicula</h2>
+            <form class="movie-form" id="movie-form">
+                <div class="movie-form__group">
+                    <label class="movie-form__label" for="titulo">Titulo:</label>
+                    <input
+                        class="movie-form__input"
+                        type="text"
+                        id="titulo"
+                        required
+                        minlength="2"
+                        maxlength="100"
+                        placeholder="Ej: El Padrino">
+                </div>
+                <div class="movie-form__group">
+                    <label class="movie-form__label" for="genero">Género:</label>
+                    <select class="movie-form__select" id="genero" required>
+                        <option value="">Seleccionar...</option>
+                        <option value="Acción">Acción</option>
+                        <option value="Comedia">Comedia</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Ciencia Ficción">Ciencia Ficción</option>
+                        <option value="Terror">Terror</option>
+                        <option value="Animación">Animación</option>
+                        <option value="Romance">Romance</option>
+                    </select>
+                </div>
+                <div class="movie-form__group">
+                    <label class="movie-form__label" for="año">Año:</label>
+                    <input
+                        class="movie-form__input"
+                        type="number"
+                        id="año"
+                        required
+                        min="1900"
+                        max="2025"
+                        placeholder="Ej: 1972">
+                </div>
+                <div class="movie-form__group">
+                    <label class="movie-form__label" for="calificacion">Calificación (1-10):</label>
+                    <input
+                        class="movie-form__input"
+                        type="number"
+                        id="calificacion"
+                        required
+                        min="1"
+                        max="10"
+                        step="0.1"
+                        placeholder="Ej: 9.5">
+                </div>
+                <button class="movie-form__submit" type="submit">
+                    Agregar Película
+                </button>
+            </form>
+        </section>
+        <section class="filters">
+            <input
+                class="filters__search"
+                type="text"
+                id="search"
+                placeholder="Buscar por título...">
+        </section>
+        <section class="stats">
+            <div class="stats__grid">
+                <div class="stats__card">
+                    <span class="stats__number" id="stats-total">0</span>
+                    <span class="stats__label">Total</span>
+                </div>
+                <div class="stats__card">
+                    <span class="stats__number" id="stats-vistas">0</span>
+                    <span class="stats__label">Vistas</span>
+                </div>
+                <div class="stats__card">
+                    <span class="stats__number" id="stats-pendientes">0</span>
+                    <span class="stats__label">Pendientes</span>
+                </div>
+                <div class="stats__card">
+                    <span class="stats__number" id="stats-promedio">0.0</span>
+                    <span class="stats__label">Promedio ⭐️</span>
+                </div>
+            </div>
+        </section>
+        <section class="movies">
+            <h2 class="movies__title">🎬 Mis Peliculas</h2>
+            <div class="movies__grid" id="movies-grid"></div>
+            <div class="movies__empty" id="movies-empty">
+                <p>No hay peliculas en tu lista.</p>
+                <p>¡Agrega tu primera pelicula favorita!</p>
+            </div>
+        </section>
+    </main>
+    <div class="notification" id="notification"></div>
+    <script src="DOS_app.js"></script>
+</body>
+</html>
